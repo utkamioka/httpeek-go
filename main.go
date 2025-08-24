@@ -27,8 +27,8 @@ func main() {
 	}
 	url := args[0]
 
-	// HTTPトランスポートを作成
-	transport := &http.Transport{}
+	// HTTPトランスポートを作成（プロキシ環境変数サポートのためDefaultTransportをベースにする）
+	transport := http.DefaultTransport.(*http.Transport).Clone()
 
 	// insecureオプションが指定されている場合、TLS証明書の検証をスキップ
 	if *insecure {

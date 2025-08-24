@@ -1,9 +1,9 @@
-.PHONY: all build linux windows clean fmt test
+.PHONY: all build linux windows darwin clean fmt test
 
-# Default target - build both platforms
-all: linux windows
+# Default target - build all platforms
+all: linux windows darwin
 
-# Build both Linux and Windows binaries (alias for all)
+# Build all binaries (alias for all)
 build: all
 
 # Linux build
@@ -13,6 +13,10 @@ linux:
 # Windows cross-compile
 windows:
 	CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o httpeek.exe .
+
+# macOS build
+darwin:
+	CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o httpeek-darwin .
 
 # Format source code
 fmt:
@@ -24,5 +28,5 @@ test:
 
 # Clean build artifacts
 clean:
-	rm -f httpeek httpeek.exe
+	rm -f httpeek httpeek.exe httpeek-darwin
 
