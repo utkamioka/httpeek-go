@@ -14,9 +14,9 @@ linux:
 windows:
 	CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o httpeek.exe .
 
-# macOS build
+# macOS build (Apple Silicon)
 darwin:
-	CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o httpeek-darwin .
+	CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -o httpeek-darwin .
 
 # Format source code
 fmt:
