@@ -17,7 +17,7 @@ HTTP レスポンスヘッダを確認するための疎通確認ツールです
 
 ## ビルド
 
-### 両方のプラットフォーム用ビルド（デフォルト）
+### 全プラットフォーム用ビルド（デフォルト）
 
 ```bash
 make
@@ -34,6 +34,7 @@ make all
 ```bash
 make linux
 make windows
+make darwin
 ```
 
 ## 使用方法
@@ -71,4 +72,4 @@ Content-Length: 1256
 
 - Go 1.23 以上
 - CGO 無効でのスタティックビルド
-- クロスプラットフォーム対応（Linux/Windows）
+- クロスプラットフォーム対応（Linux/Windows/macOS）
